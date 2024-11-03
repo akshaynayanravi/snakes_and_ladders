@@ -1,4 +1,4 @@
-from constants import BOARD_SIZE, DIE_SIZE, SNAKES, LADDERS, PLAYERS
+from snakes_and_ladders.constants import BOARD_SIZE, DIE_SIZE, SNAKES, LADDERS, PLAYERS
 from snakes_and_ladders.entities import Board, Die, Game
 
 
