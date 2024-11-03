@@ -2,6 +2,7 @@ import random
 
 # from utils import get_positions_dict
 
+
 class Player:
     def __init__(self, name):
         self.name = name
@@ -15,6 +16,7 @@ class Player:
     def current_position(self):
         return self.position
 
+
 class Snake:
     def __init__(self, head, tail):
         self.head = head
@@ -22,6 +24,7 @@ class Snake:
 
     def positions(self):
         return {self.head: self.tail}
+
 
 class Ladder:
     def __init__(self, bottom, top):
@@ -42,11 +45,15 @@ class Board:
 
     def check_for_snakes_and_ladders(self, position):
         if position in self.snakes:
-            print(f"Oops! Hit a snake at {position}, sliding down to {self.snakes[position]}.")
+            print(
+                f"Oops! Hit a snake at {position}, sliding down to {self.snakes[position]}."
+            )
             return self.snakes[position]
 
         if position in self.ladders:
-            print(f"Yay! Found a ladder at {position}, climbing up to {self.ladders[position]}.")
+            print(
+                f"Yay! Found a ladder at {position}, climbing up to {self.ladders[position]}."
+            )
             return self.ladders[position]
 
         return position
@@ -75,7 +82,9 @@ class Game:
         player.move(roll)
         print(f"{player.name} moves to {player.current_position()}.")
 
-        new_position = self.board.check_for_snakes_and_ladders(player.current_position())
+        new_position = self.board.check_for_snakes_and_ladders(
+            player.current_position()
+        )
         player.position = new_position
         print(f"{player.name} is now on square {player.current_position()}.")
 
