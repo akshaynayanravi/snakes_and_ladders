@@ -84,6 +84,14 @@ Initializes the game with constants and starts the game loop.
     Amar is now on square 100.
     Amar wins the game!
 
+## Testing
+
+### Run Tests:
+- To run unit and integration tests, use the following command:
+  ```bash
+  pytest tests/
+  ```
+
 ## Customization
 
 To customize the game, edit the constants in `constants.py`:
