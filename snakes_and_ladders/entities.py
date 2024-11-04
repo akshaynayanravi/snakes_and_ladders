@@ -17,22 +17,24 @@ class Player:
         return self.position
 
 
-class Snake:
-    def __init__(self, head, tail):
-        self.head = head
-        self.tail = tail
+# TODO: For future improvement to implement Snake as an entity.
+# class Snake:
+#     def __init__(self, head, tail):
+#         self.head = head
+#         self.tail = tail
+#
+#     def positions(self):
+#         return {self.head: self.tail}
 
-    def positions(self):
-        return {self.head: self.tail}
 
-
-class Ladder:
-    def __init__(self, bottom, top):
-        self.bottom = bottom
-        self.top = top
-
-    def positions(self):
-        return {self.bottom: self.top}
+# TODO: For future improvement to implement Ladder as an entity.
+# class Ladder:
+#     def __init__(self, bottom, top):
+#         self.bottom = bottom
+#         self.top = top
+#
+#     def positions(self):
+#         return {self.bottom: self.top}
 
 
 class Board:
@@ -76,6 +78,7 @@ class Game:
 
     def play_turn(self):
         player = self.players[self.current_player]
+        str(input(f"\n{player.name} your turn to roll... <ENTER>"))
         roll = self.die.roll()
         print(f"{player.name} rolls a {roll}.")
 
@@ -89,14 +92,14 @@ class Game:
         print(f"{player.name} is now on square {player.current_position()}.")
 
         if player.current_position() == self.board.size:
-            print(f"{player.name} wins the game!")
+            print(f"\n{player.name} wins the game!")
             return True
 
         self.current_player = (self.current_player + 1) % len(self.players)
         return False
 
     def start_game(self):
-        print("Starting the Snake and Ladder Game!")
+        print("\nLet's start the game!")
         game_over = False
         while not game_over:
             game_over = self.play_turn()
