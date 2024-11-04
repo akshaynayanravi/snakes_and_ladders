@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  snakes_and_ladders:
+    build:
+      context: .  # Use the current directory to build the Dockerfile
+      dockerfile: Dockerfile
+    command: poetry run python main.py  # Adjust 'main.py' to your main script
+    volumes:
+      - .:/app  # Mount the current directory to /app in the container
+    environment:
+      - PYTHONUNBUFFERED=1  # Ensures real-time logging output
+    working_dir: /snakes_and_ladders  # Set the working directory in the container
