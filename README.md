@@ -1,96 +1,128 @@
 # Snake and Ladder Game
 
-A simple, object-oriented Python implementation of the classic Snake and Ladder game. This game is played on a 10x10 board with players, snakes, and ladders. Players roll a die, move forward based on the roll result, and encounter snakes (moving them down) or ladders (moving them up). The first player to reach square 100 wins the game.
+```text
+Question 1: Object-Oriented Design - Snake and Ladder Game
 
-## Features
+Design and implement the classic Snake and Ladder board game.
+Reference: https://www.wikihow.com/Play-Snakes-and-Ladders
 
-- **10x10 board** with squares numbered from 1 to 100.
-- **2-4 players** support with customizable player names.
-- **6-sided die** to determine movement.
-- **Randomly placed snakes and ladders** that modify player positions.
-- **Win condition**: the first player to reach square 100 wins.
-- Modular structure for easy modification and customization.
+Requirements
+1. 10x10 board (squares 1-100)
+2. 2-4 players
+3. Six-sided die
+4. 8-10 randomly placed snakes and ladders
+5. Game ends when a player reaches square 100
 
-## Project Structure
+Tasks
 
-### `constants.py`
+Design entity classes
+● Identify core entities and their attributes
+● Define relationships between entities
+● No UI implementation required (use simple print statements if needed)
+
+Implement game logic
+● Player movement with die rolls
+● Snake and ladder mechanics
+● Turn management
+● Win condition checking
+● Game state tracking
+
+Note
+Focus on object-oriented design and core game logic only. No graphical or terminal UI required.
+```
+
+### `constants`
 Defines the game settings, including:
 - `BOARD_SIZE`: The size of the board (default is 100).
 - `DIE_SIZE`: Number of faces on the die (default is 6).
 - `SNAKES`: List of tuples representing the heads and tails of snakes.
 - `LADDERS`: List of tuples representing the start and end points of ladders.
-- `PLAYERS`: List of player names participating in the game.
 
-### `entities.py`
+### `entities`
 Contains the following main classes:
+- **`Player`**
+- **`Board`**
+- **`Die`**
+- **`Game`**
 
-- **`Player`**: Represents a player with a name and position on the board.
-- **`Board`**: Represents the game board, holding the positions of snakes and ladders.
-- **`Die`**: Simulates a die roll, with configurable number of sides.
-- **`Game`**: Manages the game flow, turn-taking, and checks for the win condition.
-
-### `main.py`
-Initializes the game with constants and starts the game loop.
-
-## Getting Started
+## Instructions
 
 ### Prerequisites
 
 - Python 3.x
+- Poetry
 
 ### Installation
 
 1. Clone this repository:
-
     ```bash
     git clone https://github.com/akshaynayanravi/snakes_and_ladders.git
     cd snakes_and_ladders
     ```
 
-2. Run the game:
-
+2. Setting up virtual environment using Poetry:
+   ```bash
+   poetry install
+   poetry shell
+   ```
+   
+3. Run the game:
     ```bash
     python main.py
     ```
 
-## How to Play
-
-1. Each player takes turns rolling the die, moving forward by the number rolled.
-2. If a player lands on the head of a snake, they move down to the snake's tail.
-3. If a player lands on the bottom of a ladder, they climb up to the top of the ladder.
-4. The first player to reach square 100 wins the game!
+4. Run unit tests:
+   ```bash
+   pytest -s .
+   ```
+   
+5. Generate coverage report:
+   ```bash
+   coverage run -m pytest -s . -v && coverage report -m
+   ```
+    Note: Current coverage stands at 94%
 
 ## Example Output
-    Starting the Snake and Ladder Game!
-    Amar rolls a 4.
-    Amar moves to 4.
-    Yay! Found a ladder at 4, climbing up to 14.
-    Amar is now on square 14.
-    Bharath rolls a 5.
-    Bharath moves to 5.
-    Bharath is now on square 5.
+    Hi,
+    Welcome to the classic Snakes And Ladders Game!!!
+    
+    Board set-up is complete...
+    Board Size - 100,
+    Die Size - 6,
+    No. of Snakes - 10,
+    No. of Ladders - 9
+    
+    No. of players? 3
+    Player 1: A
+    Player 2: B
+    Player 3: C
+    Players - ['A', 'B', 'C']
+    
+    Let's start the game!
+    
+    A your turn to roll... <ENTER>
+    A rolls a 1.
+    A moves to 1.
+    Yay! Found a ladder at 1, climbing up to 38.
+    A is now on square 38.
     .
     .
     .
-    Amar rolls a 4.
-    Amar moves to 93.
-    Oops! Hit a snake at 93, sliding down to 73.
+    A your turn to roll... <ENTER>
+    A rolls a 3.
+    A moves to 47.
+    Oops! Hit a snake at 47, sliding down to 26.
+    A is now on square 26.
     .
     .
     .
-    Amar rolls a 5.
-    Amar moves to 80.
+    A your turn to roll... <ENTER>
+    A rolls a 4.
+    A moves to 80.
     Yay! Found a ladder at 80, climbing up to 100.
-    Amar is now on square 100.
-    Amar wins the game!
-
-## Testing
-
-### Run Tests:
-- To run unit and integration tests, use the following command:
-  ```bash
-  pytest tests/
-  ```
+    A is now on square 100.
+    
+    A wins the game!
 
 ## Customization
 
@@ -98,13 +130,3 @@ To customize the game, edit the constants in `constants.py`:
 
 - **Snakes** and **Ladders**: Modify `SNAKES` and `LADDERS` lists to change the positions of snakes and ladders.
 - **Board Size** and **Die Size**: Adjust `BOARD_SIZE` and `DIE_SIZE` for different board sizes and dice.
-- **Players**: Add or remove names from `PLAYERS` to change the list of participants.
-
-## Code Overview
-
-This project follows object-oriented principles with a modular design, separating core entities from game logic. The code is organized for readability, ease of modification, and reuse.
-
-## Acknowledgments
-
-- Classic board game "Snakes and Ladders" for the concept.
-
